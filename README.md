@@ -4,6 +4,8 @@
 
 This is the smallest, fully unit tested module to convert Date objects into human readable relative timestamps, such as `'4 minutes ago'`, `'yesterday'`, `'tomorrow'`, or `'in 3 months'`.
 
+This fork adds a spanish version
+
 ## Usage
 ```javascript
 var ago = require('s-ago');
