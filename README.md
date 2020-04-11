@@ -2,7 +2,9 @@
 
 Fully unit tested module to convert Date objects into human readable relative timestamps, such as `'4 minutes ago'`, `'yesterday'`, `'tomorrow'`, or `'in 3 months'`.
 
-This fork adds i18n capabilities and a spanish version.
+Adapted from the excellent work of [Sebastian Sandqvist](https://github.com/sebastiansandqvist) available as [s-ago](https://github.com/sebastiansandqvist/s-ago)
+
+This version is a javascript adaptation (original in typescript) and adds i18n capabilities and a spanish version.
 It is easily translatable, refer to [i18n documentation](https://github.com/mashpie/i18n-node)
 
 ## Usage
