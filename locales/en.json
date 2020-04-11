@@ -1,0 +1,69 @@
+{
+  "now": "just now",
+  "%s minute": {
+    "name": "minute",
+    "past": {
+      "one": "a minute ago",
+      "other": "%s minutes ago"
+    },
+    "future": {
+      "one": "in a minute",
+      "other": "in %s minutes"
+    }
+  },
+  "%s hour": {
+    "name": "hour",
+    "past": {
+      "one": "an hour ago",
+      "other": "%s hours ago"
+    },
+    "future": {
+      "one": "in an hour",
+      "other": "in %s hours"
+    }
+  },
+  "%s day": {
+    "name": "day",
+    "past": {
+      "one": "yesterday",
+      "other": "%s days ago"
+    },
+    "future": {
+      "one": "tomorrow",
+      "other": "in %s days"
+    }
+  },
+  "%s week": {
+    "name": "week",
+    "past": {
+      "one": "last week",
+      "other": "%s weeks ago"
+    },
+    "future": {
+      "one": "in a week",
+      "other": "in %s weeks"
+    }
+  },
+  "%s month": {
+    "name": "month",
+    "past": {
+      "one": "last month",
+      "other": "%s months ago"
+    },
+    "future": {
+      "one": "in a month",
+      "other": "in %s months"
+    }
+  },
+  "%s year": {
+    "name": "year",
+    "past": {
+      "one": "last year",
+      "other": "%s years ago"
+    },
+    "future": {
+      "one": "in a year",
+      "other": "in %s years"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "now": "ahora",
+  "%s minute": {
+    "name": "minute",
+    "past": {
+      "one": "hace un minuto",
+      "other": "hace %s minutos"
+    },
+    "future": {
+      "one": "en un minuto",
+      "other": "en %s minutos"
+    }
+  },
+  "%s hour": {
+    "name": "hour",
+    "past": {
+      "one": "hace una hora",
+      "other": "hace %s horas"
+    },
+    "future": {
+      "one": "en una hora",
+      "other": "ien %s horas"
+    }
+  },
+  "%s day": {
+    "name": "day",
+    "past": {
+      "one": "ayer",
+      "other": "hace %s días"
+    },
+    "future": {
+      "one": "mañana",
+      "other": "en %s días"
+    }
+  },
+  "%s week": {
+    "name": "week",
+    "past": {
+      "one": "la semana pasada",
+      "other": "hace %s semanas"
+    },
+    "future": {
+      "one": "la proxima semana",
+      "other": "en %s semanas"
+    }
+  },
+  "%s month": {
+    "name": "month",
+    "past": {
+      "one": "el mes pasado",
+      "other": "hace %s meses"
+    },
+    "future": {
+      "one": "el proximo mes",
+      "other": "en %s meses"
+    }
+  },
+  "%s year": {
+    "name": "year",
+    "past": {
+      "one": "el año pasado",
+      "other": "hace %s años"
+    },
+    "future": {
+      "one": "el proximo año",
+      "other": "en %s años"
+    }
+  }
+}

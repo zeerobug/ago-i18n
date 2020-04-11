@@ -3,32 +3,34 @@ const { ago } = require("../index");
 
 const timestamp = new Date();
 
+ago.locale = "es";
+
 test("just now", (t) => {
-  t.is(ago(timestamp), "just now");
+  t.is(ago(timestamp), "ahora");
 });
 
 test("minute", (t) => {
   const minute = new Date(timestamp.valueOf() - 60 * 1000);
   const minute2 = new Date(timestamp.valueOf() - (60 * 1000 + 5000));
-  t.is(ago(minute), "a minute ago");
-  t.is(ago(minute2), "a minute ago");
+  t.is(ago(minute), "hace un minuto");
+  t.is(ago(minute2), "hace un minuto");
 });
 
 test("minute future", (t) => {
   const timestamp = new Date();
   const minute = new Date(timestamp.valueOf() + 60 * 1000);
   const minute2 = new Date(timestamp.valueOf() + (60 * 1000 + 5000));
-  t.is(ago(minute), "in a minute");
-  t.is(ago(minute2), "in a minute");
+  t.is(ago(minute), "en un minuto");
+  t.is(ago(minute2), "en un minuto");
 });
 
 test("minutes", (t) => {
   const minutes = new Date(timestamp.valueOf() - 2 * 60 * 1000);
   const minutes2 = new Date(timestamp.valueOf() - 20 * 60 * 1000);
   const minutes3 = new Date(timestamp.valueOf() - 45 * 60 * 1000);
-  t.is(ago(minutes), "2 minutes ago");
-  t.is(ago(minutes2), "20 minutes ago");
-  t.is(ago(minutes3), "45 minutes ago");
+  t.is(ago(minutes), "hace 2 minutos");
+  t.is(ago(minutes2), "hace 20 minutos");
+  t.is(ago(minutes3), "hace 45 minutos");
 });
 
 test("minutes future", (t) => {
@@ -36,128 +38,128 @@ test("minutes future", (t) => {
   const minutes = new Date(timestamp.valueOf() + 2 * 60 * 1000);
   const minutes2 = new Date(timestamp.valueOf() + 20 * 60 * 1000);
   const minutes3 = new Date(timestamp.valueOf() + 45 * 60 * 1000);
-  t.is(ago(minutes), "in 2 minutes");
-  t.is(ago(minutes2), "in 20 minutes");
-  t.is(ago(minutes3), "in 45 minutes");
+  t.is(ago(minutes), "en 2 minutos");
+  t.is(ago(minutes2), "en 20 minutos");
+  t.is(ago(minutes3), "en 45 minutos");
 });
 
 test("hour", (t) => {
   const underHour = new Date(timestamp.valueOf() - 50 * 60 * 1000);
   const hour = new Date(timestamp.valueOf() - 60 * 60 * 1000);
-  t.is(ago(underHour), "an hour ago");
-  t.is(ago(hour), "an hour ago");
+  t.is(ago(underHour), "hace una hora");
+  t.is(ago(hour), "hace una hora");
 });
 
 test("hour future", (t) => {
   const timestamp = new Date();
   const withinHour = new Date(timestamp.valueOf() + 50 * 60 * 1000);
   const hour = new Date(timestamp.valueOf() + 60 * 60 * 1000);
-  t.is(ago(withinHour), "in an hour");
-  t.is(ago(hour), "in an hour");
+  t.is(ago(withinHour), "en una hora");
+  t.is(ago(hour), "en una hora");
 });
 
 test("hours", (t) => {
   const hours = new Date(timestamp.valueOf() - 2 * 60 * 60 * 1000);
   const hours2 = new Date(timestamp.valueOf() - 19 * 60 * 60 * 1000);
-  t.is(ago(hours), "2 hours ago");
-  t.is(ago(hours2), "19 hours ago");
+  t.is(ago(hours), "hace 2 horas");
+  t.is(ago(hours2), "hace 19 horas");
 });
 
 test("yesterday", (t) => {
   const yesterday = new Date(timestamp.valueOf() - 20 * 60 * 60 * 1000);
-  t.is(ago(yesterday), "yesterday");
+  t.is(ago(yesterday), "ayer");
 });
 
 test("day future", (t) => {
   const timestamp = new Date();
   const yesterday = new Date(timestamp.valueOf() + 20 * 60 * 60 * 1000);
-  t.is(ago(yesterday), "tomorrow");
+  t.is(ago(yesterday), "mañana");
 });
 
 test("days", (t) => {
   const days = new Date(timestamp.valueOf() - 2 * 24 * 60 * 60 * 1000);
   const days2 = new Date(timestamp.valueOf() - 5 * 24 * 60 * 60 * 1000);
-  t.is(ago(days), "2 days ago");
-  t.is(ago(days2), "5 days ago");
+  t.is(ago(days), "hace 2 días");
+  t.is(ago(days2), "hace 5 días");
 });
 
 test("days future", (t) => {
   const timestamp = new Date();
   const days = new Date(timestamp.valueOf() + 2 * 24 * 60 * 60 * 1000);
   const days2 = new Date(timestamp.valueOf() + 5 * 24 * 60 * 60 * 1000);
-  t.is(ago(days), "in 2 days");
-  t.is(ago(days2), "in 5 days");
+  t.is(ago(days), "en 2 días");
+  t.is(ago(days2), "en 5 días");
 });
 
 test("week", (t) => {
   const week = new Date(timestamp.valueOf() - 6 * 24 * 60 * 60 * 1000);
-  t.is(ago(week), "last week");
+  t.is(ago(week), "la semana pasada");
 });
 
 test("week future", (t) => {
   const timestamp = new Date();
   const week = new Date(timestamp.valueOf() + 6 * 24 * 60 * 60 * 1000);
-  t.is(ago(week), "in a week");
+  t.is(ago(week), "la proxima semana");
 });
 
 test("weeks", (t) => {
   const weeks = new Date(timestamp.valueOf() - 2 * 7 * 24 * 60 * 60 * 1000);
   const weeks2 = new Date(timestamp.valueOf() - 3 * 7 * 24 * 60 * 60 * 1000);
-  t.is(ago(weeks), "2 weeks ago");
-  t.is(ago(weeks2), "3 weeks ago");
+  t.is(ago(weeks), "hace 2 semanas");
+  t.is(ago(weeks2), "hace 3 semanas");
 });
 
 test("weeks future", (t) => {
   const timestamp = new Date();
   const weeks = new Date(timestamp.valueOf() + 2 * 7 * 24 * 60 * 60 * 1000);
   const weeks2 = new Date(timestamp.valueOf() + 3 * 7 * 24 * 60 * 60 * 1000);
-  t.is(ago(weeks), "in 2 weeks");
-  t.is(ago(weeks2), "in 3 weeks");
+  t.is(ago(weeks), "en 2 semanas");
+  t.is(ago(weeks2), "en 3 semanas");
 });
 
 test("month", (t) => {
   const month = new Date(timestamp.valueOf() - 4 * 7 * 24 * 60 * 60 * 1000);
   const month2 = new Date(timestamp.valueOf() - 30 * 24 * 60 * 60 * 1000);
-  t.is(ago(month), "last month");
-  t.is(ago(month2), "last month");
+  t.is(ago(month), "el mes pasado");
+  t.is(ago(month2), "el mes pasado");
 });
 
 test("month future", (t) => {
   const timestamp = new Date();
   const month = new Date(timestamp.valueOf() + 4 * 7 * 24 * 60 * 60 * 1000);
   const month2 = new Date(timestamp.valueOf() + 30 * 24 * 60 * 60 * 1000);
-  t.is(ago(month), "in a month");
-  t.is(ago(month2), "in a month");
+  t.is(ago(month), "el proximo mes");
+  t.is(ago(month2), "el proximo mes");
 });
 
 test("months", (t) => {
   const months = new Date(timestamp.valueOf() - 2 * 30 * 24 * 60 * 60 * 1000);
   const months2 = new Date(timestamp.valueOf() - 10 * 30 * 24 * 60 * 60 * 1000);
-  t.is(ago(months), "2 months ago");
-  t.is(ago(months2), "10 months ago");
+  t.is(ago(months), "hace 2 meses");
+  t.is(ago(months2), "hace 10 meses");
 });
 
 test("months future", (t) => {
   const timestamp = new Date();
   const months = new Date(timestamp.valueOf() + 2 * 30 * 24 * 60 * 60 * 1000);
   const months2 = new Date(timestamp.valueOf() + 10 * 30 * 24 * 60 * 60 * 1000);
-  t.is(ago(months), "in 2 months");
-  t.is(ago(months2), "in 10 months");
+  t.is(ago(months), "en 2 meses");
+  t.is(ago(months2), "en 10 meses");
 });
 
 test("year", (t) => {
   const year = new Date(timestamp.valueOf() - 350 * 24 * 60 * 60 * 1000);
   const year2 = new Date(timestamp.valueOf() - 1.5 * 360 * 24 * 60 * 60 * 1000);
-  t.is(ago(year), "last year");
-  t.is(ago(year2), "last year");
+  t.is(ago(year), "el año pasado");
+  t.is(ago(year2), "el año pasado");
 });
 
 test("year future", (t) => {
   const timestamp = new Date();
   const year = new Date(timestamp.valueOf() + 350 * 24 * 60 * 60 * 1000);
   const year2 = new Date(timestamp.valueOf() + 1.5 * 360 * 24 * 60 * 60 * 1000);
-  t.is(ago(year), "in a year");
-  t.is(ago(year2), "in a year");
+  t.is(ago(year), "el proximo año");
+  t.is(ago(year2), "el proximo año");
 });
 
 test("years", (t) => {
@@ -169,10 +171,10 @@ test("years", (t) => {
   const years4 = new Date(
     timestamp.valueOf() - 100000 * 365 * 24 * 60 * 60 * 1000
   );
-  t.is(ago(years), "2 years ago");
-  t.is(ago(years2), "20 years ago");
-  t.is(ago(years3), "100 years ago");
-  t.is(ago(years4), "100000 years ago");
+  t.is(ago(years), "hace 2 años");
+  t.is(ago(years2), "hace 20 años");
+  t.is(ago(years3), "hace 100 años");
+  t.is(ago(years4), "hace 100000 años");
 });
 test("years future", (t) => {
   const timestamp = new Date();
@@ -184,43 +186,8 @@ test("years future", (t) => {
   const years4 = new Date(
     timestamp.valueOf() + 100000 * 365 * 24 * 60 * 60 * 1000
   );
-  t.is(ago(years), "in 2 years");
-  t.is(ago(years2), "in 20 years");
-  t.is(ago(years3), "in 100 years");
-  t.is(ago(years4), "in 100000 years");
-});
-
-test("boundaries", (t) => {
-  const minutes = new Date(timestamp.valueOf() - 1.8 * 60 * 1000);
-  const minutes2 = new Date(timestamp.valueOf() - 14.7 * 60 * 1000);
-  const hours = new Date(timestamp.valueOf() - 1.8 * 60 * 60 * 1000);
-  const hours2 = new Date(timestamp.valueOf() - 18.8 * 60 * 60 * 1000);
-  const years = new Date(timestamp.valueOf() - 1.8 * 365 * 24 * 60 * 60 * 1000);
-  const years2 = new Date(
-    timestamp.valueOf() - 14.7 * 365 * 24 * 60 * 60 * 1000
-  );
-  t.is(ago(minutes), "2 minutes ago");
-  t.is(ago(minutes2), "15 minutes ago");
-  t.is(ago(hours), "2 hours ago");
-  t.is(ago(hours2), "19 hours ago");
-  t.is(ago(years), "2 years ago");
-  t.is(ago(years2), "15 years ago");
-});
-
-test("boundaries future", (t) => {
-  const timestamp = new Date();
-  const minutes = new Date(timestamp.valueOf() + 1.8 * 60 * 1000);
-  const minutes2 = new Date(timestamp.valueOf() + 14.7 * 60 * 1000);
-  const hours = new Date(timestamp.valueOf() + 1.8 * 60 * 60 * 1000);
-  const hours2 = new Date(timestamp.valueOf() + 18.8 * 60 * 60 * 1000);
-  const years = new Date(timestamp.valueOf() + 1.8 * 365 * 24 * 60 * 60 * 1000);
-  const years2 = new Date(
-    timestamp.valueOf() + 14.7 * 365 * 24 * 60 * 60 * 1000
-  );
-  t.is(ago(minutes), "in 2 minutes");
-  t.is(ago(minutes2), "in 15 minutes");
-  t.is(ago(hours), "in 2 hours");
-  t.is(ago(hours2), "in 19 hours");
-  t.is(ago(years), "in 2 years");
-  t.is(ago(years2), "in 15 years");
+  t.is(ago(years), "en 2 años");
+  t.is(ago(years2), "en 20 años");
+  t.is(ago(years3), "en 100 años");
+  t.is(ago(years4), "en 100000 años");
 });

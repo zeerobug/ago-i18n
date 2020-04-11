@@ -3,11 +3,8 @@
   "version": "2.1.0",
   "description": "Human readable relative times (eg. 4 minutes ago)",
   "main": "index.js",
-  "types": "index.d.ts",
   "scripts": {
-    "build": "tsc --declaration index.ts",
-    "coverage": "npm run build && nyc --reporter=lcov --reporter=text ava",
-    "test": "npm run build && ava"
+    "test": "ava test/test-es.js"
   },
   "repository": {
     "type": "git",
@@ -21,15 +18,16 @@
     "timestamp",
     "format"
   ],
-  "author": "sebastian sandqvist",
+  "author": "Thomas Vié",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sebastiansandqvist/s-ago/issues"
   },
   "homepage": "https://github.com/sebastiansandqvist/s-ago",
   "devDependencies": {
-    "ava": "0.24.0",
-    "nyc": "11.4.1",
-    "typescript": "3.0.3"
+    "ava": "0.24.0"
+  },
+  "dependencies": {
+    "i18n": "^0.8.6"
   }
 }
