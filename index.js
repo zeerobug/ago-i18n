@@ -2,7 +2,7 @@
 
 Usage:
 
-var ago = require('s-ago');
+var ago = require('ago-i18n');
 
 var now = new Date();
 var yesterday = new Date(now.getTime() - (24 * 60 * 60 * 1000));
@@ -58,8 +58,6 @@ function getUnits(locale) {
 
 function format(diff, divisor, unit, isInTheFuture) {
   var val = Math.round(Math.abs(diff) / divisor);
-  //if (isInTheFuture) return val <= 1 ? future : "in " + val + " " + unit + "s";
-  //return val <= 1 ? past : val + " " + unit + "s ago";
   timeLine = isInTheFuture ? "future" : "past";
   return i18n.__n("%s " + unit + "." + timeLine, val);
 }
@@ -75,15 +73,6 @@ function ago(date) {
       return format(diff, units[i].value, units[i].name, diff < 0);
     }
   }
-
-  // `year` is the final unit.
-  // same as:
-  //  {
-  //    max: Infinity,
-  //    value: 31536000000,
-  //    name: 'year',
-  //    past: 'last year'
-  //  }
   return format(diff, 31536000000, "year", diff < 0);
 }
 

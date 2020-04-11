@@ -1,16 +1,17 @@
-# s-ago
+# ago-i18n
 
-[![NPM version](https://img.shields.io/npm/v/s-ago.svg)](https://www.npmjs.com/package/s-ago) ![Dependencies](https://img.shields.io/david/sebastiansandqvist/s-ago.svg) [![build status](http://img.shields.io/travis/sebastiansandqvist/s-ago.svg)](https://travis-ci.org/sebastiansandqvist/s-ago) [![NPM license](https://img.shields.io/npm/l/s-ago.svg)](https://www.npmjs.com/package/s-ago)
-
-This is the smallest, fully unit tested module to convert Date objects into human readable relative timestamps, such as `'4 minutes ago'`, `'yesterday'`, `'tomorrow'`, or `'in 3 months'`.
+Fully unit tested module to convert Date objects into human readable relative timestamps, such as `'4 minutes ago'`, `'yesterday'`, `'tomorrow'`, or `'in 3 months'`.
 
 This fork adds i18n capabilities and a spanish version.
-It is easily translatable
+It is easily translatable, refer to [i18n documentation](https://github.com/mashpie/i18n-node)
 
 ## Usage
 
 ```javascript
 var ago = require("ago-i18n");
+
+// Set locale "en" or "es" (en by default)
+ago.locale = "en";
 
 var now = new Date();
 var yesterday = new Date(now.getTime() - 24 * 60 * 60 * 1000);
